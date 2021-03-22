@@ -521,17 +521,12 @@ static CGSize CGSizeScale(CGSize size, CGFloat scale) {
             case QBImagePickerMediaTypeAny:
             {
                 NSString *format;
-                if (numberOfPhotos == 1) {
-                    if (numberOfVideos == 1) {
-                        format = NSLocalizedStringFromTableInBundle(@"assets.footer.photo-and-video", @"QBImagePicker", bundle, nil);
-                    } else {
-                        format = NSLocalizedStringFromTableInBundle(@"assets.footer.photo-and-videos", @"QBImagePicker", bundle, nil);
-                    }
-                } else if (numberOfVideos == 1) {
-                    format = NSLocalizedStringFromTableInBundle(@"assets.footer.photos-and-video", @"QBImagePicker", bundle, nil);
-                } else {
-                    format = NSLocalizedStringFromTableInBundle(@"assets.footer.photos-and-videos", @"QBImagePicker", bundle, nil);
-                }
+
+                 if (numberOfPhotos > 1) {
+                     format = @"%ld Valgte elementer";
+                 } else {
+                     format = @"%ld Valgt element";
+                 }
 
                 label.text = [NSString stringWithFormat:format, numberOfPhotos, numberOfVideos];
             }
@@ -548,7 +543,8 @@ static CGSize CGSizeScale(CGSize size, CGFloat scale) {
 
             case QBImagePickerMediaTypeVideo:
             {
-                NSString *key = (numberOfVideos == 1) ? @"assets.footer.video" : @"assets.footer.videos";
+                NSString *key = (numberOfVideos == 1) ? @"%ld Valgt element" : @"%ld Valgte elementer";
+
                 NSString *format = NSLocalizedStringFromTableInBundle(key, @"QBImagePicker", bundle, nil);
 
                 label.text = [NSString stringWithFormat:format, numberOfVideos];
