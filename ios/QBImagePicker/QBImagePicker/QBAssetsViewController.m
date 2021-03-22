@@ -213,10 +213,12 @@ static CGSize CGSizeScale(CGSize size, CGFloat scale) {
     if (selectedAssets.count > 0) {
         NSBundle *bundle = self.imagePickerController.assetBundle;
         NSString *format;
+
+
         if (selectedAssets.count > 1) {
-            format = NSLocalizedStringFromTableInBundle(@"assets.toolbar.items-selected", @"QBImagePicker", bundle, nil);
+            format = @"%ld Valgte elementer";
         } else {
-            format = NSLocalizedStringFromTableInBundle(@"assets.toolbar.item-selected", @"QBImagePicker", bundle, nil);
+            format = @"%ld Valgt element";
         }
 
         NSString *title = [NSString stringWithFormat:format, selectedAssets.count];
@@ -537,7 +539,7 @@ static CGSize CGSizeScale(CGSize size, CGFloat scale) {
 
             case QBImagePickerMediaTypeImage:
             {
-                NSString *key = (numberOfPhotos == 1) ? @"assets.footer.photo" : @"assets.footer.photos";
+                NSString *key = (numberOfPhotos == 1) ? @"Bilde" : @"Bilder";
                 NSString *format = NSLocalizedStringFromTableInBundle(key, @"QBImagePicker", bundle, nil);
 
                 label.text = [NSString stringWithFormat:format, numberOfPhotos];

@@ -59,7 +59,7 @@ static CGSize CGSizeScale(CGSize size, CGFloat scale) {
     [super viewWillAppear:animated];
 
     // Configure navigation item
-    self.navigationItem.title = "Photos";
+    self.navigationItem.title = @"Bilder";
     self.navigationItem.prompt = self.imagePickerController.prompt;
 
     // Show/hide 'Done' button
@@ -134,9 +134,9 @@ static CGSize CGSizeScale(CGSize size, CGFloat scale) {
         NSBundle *bundle = self.imagePickerController.assetBundle;
         NSString *format;
         if (selectedAssets.count > 1) {
-            format = NSLocalizedStringFromTableInBundle(@"assets.toolbar.items-selected", @"QBImagePicker", bundle, nil);
+            format = @"%ld Valgte elementer";
         } else {
-            format = NSLocalizedStringFromTableInBundle(@"assets.toolbar.item-selected", @"QBImagePicker", bundle, nil);
+            format = @"%ld Valgt element";
         }
 
         NSString *title = [NSString stringWithFormat:format, selectedAssets.count];
