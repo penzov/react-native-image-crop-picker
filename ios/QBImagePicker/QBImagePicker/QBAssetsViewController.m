@@ -523,9 +523,9 @@ static CGSize CGSizeScale(CGSize size, CGFloat scale) {
                 NSString *format;
 
                  if (numberOfPhotos > 1) {
-                     format = @"%ld Valgte elementer";
+                     format = @"%ld Bilder";
                  } else {
-                     format = @"%ld Valgt element";
+                     format = @"%ld Bilde";
                  }
 
                 label.text = [NSString stringWithFormat:format, numberOfPhotos, numberOfVideos];
@@ -543,7 +543,7 @@ static CGSize CGSizeScale(CGSize size, CGFloat scale) {
 
             case QBImagePickerMediaTypeVideo:
             {
-                NSString *key = (numberOfVideos == 1) ? @"%ld Valgt element" : @"%ld Valgte elementer";
+                NSString *key = (numberOfVideos == 1) ? @"%ld Bilde" : @"%ld Bilder";
 
                 NSString *format = NSLocalizedStringFromTableInBundle(key, @"QBImagePicker", bundle, nil);
 
